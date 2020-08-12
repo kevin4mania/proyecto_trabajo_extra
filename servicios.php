@@ -50,7 +50,7 @@
             <a class="nav-link" href="#">Servicios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contáctanos</a>
+            <a class="nav-link" href="contacts.php">Contáctanos</a>
           </li>
         </ul>
       </div>
@@ -62,7 +62,7 @@
 
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
-      <h1 class="display-3">Bienvenido a StyleShop</h1>
+      <h1 class="display-3">Servicios de StyleShop</h1>
       <p class="lead">Te damos la bienvenida para disfrutes de nuestros servicios.</p>
     </header>
 

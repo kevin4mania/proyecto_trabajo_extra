@@ -20,32 +20,25 @@
 
 <body>
     <?php
-<<<<<<< HEAD
-    $conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or 
-    //$conexion = mysqli_connect("localhost", "root", "1234", "tiendaropa2022") or 
-    die("Problemas con la conexión");
-?>
-=======
         $conexion = mysqli_connect("localhost", "root", "kevinroot", "tiendaropa2022") or 
         die("Problemas con la conexión");
         ?>
->>>>>>> c5c1b5f19d3543e4e398d3900007f4c8fb4ef600
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.php">StyleShop</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.php">Home
-              <span class="sr-only">(current)</span>
-            </a>
-            </li>
-                    <li class="nav-item">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                        <li class="nav-item">
                         <a class="nav-link" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
@@ -57,15 +50,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contacts.html">Contact</a>
                     </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Page Content -->
-  <div class="container">
-
-    <div class="row">
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <!-- Page Content -->
     <div class="container">
@@ -115,7 +104,7 @@
 
                 <div class="row">
                     <?php
-        $registros = mysqli_query($conexion, "SELECT * FROM `Producto` WHERE `id_categoria`=1") or
+        $registros = mysqli_query($conexion, "SELECT * FROM `Producto` WHERE `id_categoria`=3") or
         die("Problemas en el select:" . mysqli_error($conexion));
         ?>
                     <?php 

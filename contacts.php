@@ -24,32 +24,47 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/full-width-pics.css" rel="stylesheet">
+
 </head>
 
 <body>
+<?php
+    $conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or 
+    //$conexion = mysqli_connect("localhost", "root", "1234", "tiendaropa2022") or 
+    die("Problemas con la conexión");
+    $servicios = mysqli_query($conexion, "select * from Pagina") or
+    die("Problemas en el select:" . mysqli_error($conexion));
+?>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <a class="navbar-brand" href="index.php">StyleShop</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
+                        <a class="nav-link" href="index.php">Home
+                        <span class="sr-only">(current)</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#">Quienes Somos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link" href="#">Tienda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="servicios.php">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.php">Contáctanos</a>
                     </li>
                 </ul>
             </div>
@@ -58,22 +73,33 @@
 
     <!-- Header - set the background image for the header in the line below -->
     <header class="py-5 bg-image-full" style="background-image: url('https://unsplash.it/1900/1080?image=1076');">
-        <img class="img-fluid d-block mx-auto" src="http://placehold.it/200x200&text=Logo" alt="">
+        <?php
+        $template = '';
+
+        while ($reg = mysqli_fetch_array($servicios)) {
+            
+            $template .= '<img class="img-fluid d-block mx-auto" src="'.$reg['logo'].'" alt="">';
+        }
+        echo $template;
+
+        mysqli_close($conexion);
+        ?>
+        
     </header>
 
     <!--Section: Contact v.2-->
-    <section class="mb-4" style="margin-left: 2%;margin-right: 2%;">
+    <section class="mb-4" style="margin-left: 10%;margin-right: 10%;">
 
         <!--Section heading-->
-        <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Contáctanos</h2>
         <!--Section description-->
-        <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within a matter of hours to help you.</p>
+        <p class="text-center w-responsive mx-auto mb-5">¿Tienes alguna pregunta? Por favor utiliza este medio para contactarnos directamente. Nuestro equipo estara feliz en ayudarlo.</p>
 
         <div class="row">
 
             <!--Grid column-->
             <div class="col-md-9 mb-md-0 mb-5">
-                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+                <form id="contact-form" name="contact-form" action="controlador/contacts.php" method="POST">
 
                     <!--Grid row-->
                     <div class="row">
@@ -82,7 +108,7 @@
                         <div class="col-md-6">
                             <div class="md-form mb-0">
                                 <input type="text" id="name" name="name" class="form-control">
-                                <label for="name" class="">Your name</label>
+                                <label for="name" class="">Nombre</label>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -91,7 +117,7 @@
                         <div class="col-md-6">
                             <div class="md-form mb-0">
                                 <input type="text" id="email" name="email" class="form-control">
-                                <label for="email" class="">Your email</label>
+                                <label for="email" class="">Email</label>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -104,7 +130,7 @@
                         <div class="col-md-12">
                             <div class="md-form mb-0">
                                 <input type="text" id="subject" name="subject" class="form-control">
-                                <label for="subject" class="">Subject</label>
+                                <label for="subject" class="">Asunto</label>
                             </div>
                         </div>
                     </div>
@@ -118,7 +144,7 @@
 
                             <div class="md-form">
                                 <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                                <label for="message">Your message</label>
+                                <label for="message">Mensaje</label>
                             </div>
 
                         </div>
@@ -128,7 +154,7 @@
                 </form>
 
                 <div class="text-center text-md-left">
-                    <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
+                    <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Enviar</a>
                 </div>
                 <div class="status"></div>
             </div>
@@ -138,15 +164,15 @@
             <div class="col-md-3 text-center">
                 <ul class="list-unstyled mb-0">
                     <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                        <p>San Francisco, CA 94126, USA</p>
+                        <p>Quito, Ecuador</p>
                     </li>
 
                     <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                        <p>+ 01 234 567 89</p>
+                        <p>+ 593 234 567 89</p>
                     </li>
 
                     <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                        <p>contact@mdbootstrap.com</p>
+                        <p>contact@StyleShop.com</p>
                     </li>
                 </ul>
             </div>
@@ -161,7 +187,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+            <p class="m-0 text-center text-white">Copyright &copy; StyleShop 2020</p>
         </div>
         <!-- /.container -->
     </footer>
