@@ -19,6 +19,10 @@
 </head>
 
 <body>
+<?php
+        $conexion = mysqli_connect("localhost", "root", "kevinroot", "tiendaropa2022") or 
+        die("Problemas con la conexión");
+        ?>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -95,23 +99,30 @@
         </div>
 
         <div class="row">
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item One</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
+        <?php
+        $registros = mysqli_query($conexion, "SELECT * FROM `Producto`") or
+        die("Problemas en el select:" . mysqli_error($conexion));
+        ?>
+        <?php 
+          while ($reg = mysqli_fetch_array($registros)) {
+            //echo "Nombre:" . $reg['Descripcion'] . "<br>";
+        
+          echo '<div class="col-lg-4 col-md-6 mb-4">';
+            echo '<div class="card h-100">';
+              echo '<a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>';
+              echo '<div class="card-body">';
+                echo '<h4 class="card-title">';
+                  echo '<a href="#">'.$reg['Nombre'].'</a>';
+                echo '</h4>';
+                echo '<h5>$'.$reg['Precio'].'</h5>';
+                echo '<p class="card-text">'.$reg['Descripcion'].'</p>';
+              echo '</div>';
+              echo '<div class="card-footer">';
+                echo '<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>';
+              echo '</div>';
+            echo '</div>';
+          echo '</div>';
+          }?>
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -191,7 +202,6 @@
               </div>
             </div>
           </div>
-
         </div>
         <!-- /.row -->
 
