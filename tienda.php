@@ -20,9 +20,16 @@
 
 <body>
     <?php
+<<<<<<< HEAD
+    $conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or 
+    //$conexion = mysqli_connect("localhost", "root", "1234", "tiendaropa2022") or 
+    die("Problemas con la conexión");
+?>
+=======
         $conexion = mysqli_connect("localhost", "root", "kevinroot", "tiendaropa2022") or 
         die("Problemas con la conexión");
         ?>
+>>>>>>> c5c1b5f19d3543e4e398d3900007f4c8fb4ef600
 
 <<<<<<< HEAD
     <!-- Navigation -->
