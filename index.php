@@ -14,7 +14,8 @@
 
 <body>
     <?php
-    $conexion = mysqli_connect("localhost", "root", "kevinroot", "tiendaropa2022") or 
+    $conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or 
+    
     die("Problemas con la conexión");
 
     $registros = mysqli_query($conexion, "SELECT eslogan FROM `Pagina`") or
@@ -38,17 +39,17 @@
             </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.php">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="tienda.php">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="servicios.html">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacts.html">Contact</a>
-                    </li>
+            <a class="nav-link" href="about.php">Quienes Somos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tienda.php">Tienda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="servicios.php">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.php">Contáctanos</a>
+          </li>
                 </ul>
             </div>
         </div>
@@ -85,4 +86,3 @@
 
 </body>
 </html>
- 6 

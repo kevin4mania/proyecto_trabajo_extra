@@ -55,17 +55,17 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Quienes Somos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Tienda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="servicios.php">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacts.php">Contáctanos</a>
-                    </li>
+            <a class="nav-link" href="about.php">Quienes Somos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tienda.php">Tienda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="servicios.php">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.php">Contáctanos</a>
+          </li>
                 </ul>
             </div>
         </div>

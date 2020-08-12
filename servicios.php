@@ -29,7 +29,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">StyleShop</a>
+      <a class="navbar-brand" href="index.php">StyleShop</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -41,13 +41,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Quienes Somos</a>
+            <a class="nav-link" href="about.php">Quienes Somos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Tienda</a>
+            <a class="nav-link" href="tienda.php">Tienda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Servicios</a>
+            <a class="nav-link" href="servicios.php">Servicios</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contacts.php">Contáctanos</a>
