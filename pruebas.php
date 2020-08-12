@@ -16,11 +16,11 @@
 
     $registros = mysqli_query($conexion, "select * from Categoria") or
     die("Problemas en el select:" . mysqli_error($conexion));
-    /*
+    
     if ($reg = mysqli_fetch_array($registros)) {
         echo "Nombre: " . $reg['Descripcion'] . "<br>";
     }
-    */
+    
     while ($reg = mysqli_fetch_array($registros)) {
         echo "Nombre:" . $reg['Descripcion'] . "<br>";
     }
