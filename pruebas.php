@@ -11,7 +11,7 @@
     hola esto es la prueba de conexion
     <?php
     //$conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or 
-    $conexion = mysqli_connect("localhost", "root", "kevinroot", "tiendaropa2022") or 
+    $conexion = mysqli_connect("localhost", "root", "1234", "tiendaropa2022") or 
     die("Problemas con la conexión");
 
     $registros = mysqli_query($conexion, "select * from Categoria") or
