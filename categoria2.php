@@ -101,7 +101,7 @@
 
                 <div class="row">
                     <?php
-        $registros = mysqli_query($conexion, "SELECT * FROM `Producto` WHERE `id_categoria`=1") or
+        $registros = mysqli_query($conexion, "SELECT * FROM `Producto` WHERE `id_categoria`=2") or
         die("Problemas en el select:" . mysqli_error($conexion));
         ?>
                     <?php 
