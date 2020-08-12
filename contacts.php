@@ -55,17 +55,17 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Quienes Somos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Tienda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="servicios.php">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacts.php">Contáctanos</a>
-                    </li>
+            <a class="nav-link" href="about.php">Quienes Somos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tienda.php">Tienda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="servicios.php">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.php">Contáctanos</a>
+          </li>
                 </ul>
             </div>
         </div>
@@ -195,7 +195,15 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 </body>
+
 
 </html>
