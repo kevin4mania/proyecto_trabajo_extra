@@ -20,7 +20,9 @@
 
 <body>
     <?php
-        $conexion = mysqli_connect("localhost", "root", "kevinroot", "tiendaropa2022") or 
+    $conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or
+        //$conexion = mysqli_connect("localhost", "root", "kevinroot", "tiendaropa2022") or 
+       // $conexion = mysqli_connect("localhost", "root", "1234", "tiendaropa2022") or 
         die("Problemas con la conexión");
         ?>
 
@@ -38,7 +40,7 @@
                         <a class="nav-link" href="index.php">Home
                             <span class="sr-only">(current)</span>
                         </a>
-                        <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
@@ -65,9 +67,9 @@
 
                 <h1 class="my-4">Shop Name</h1>
                 <div class="list-group">
-                    <a href="tienda.php" class="list-group-item">Categoria 1</a>
-                    <a href="categoria2.php" class="list-group-item">Categoria 2</a>
-                    <a href="categoria3.php" class="list-group-item">Categoria 3</a>
+                    <a href="tienda.php" class="list-group-item">Caballeros</a>
+                    <a href="categoria2.php" class="list-group-item">Damas</a>
+                    <a href="categoria3.php" class="list-group-item">Infantil</a>
                 </div>
 
             </div>
