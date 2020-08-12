@@ -28,8 +28,14 @@
 
     mysqli_close($conexion);
 
-    ?>
+    
 
+    ?>
+    <form action="pagina2.php" method="post" enctype="multipart/form-data">
+        Seleccione el archivo:
+        <input type="file" name="imagen"><br>
+        <input type="submit" value="Enviar">
+    </form>
 
 </body>
 
