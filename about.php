@@ -19,22 +19,30 @@
 </head>
 
 <body>
+    <?php
+    $conexion = mysqli_connect("localhost", "root", "kevinroot", "tiendaropa2022") or 
+    die("Problemas con la conexión");
+
+    $registros = mysqli_query($conexion, "SELECT * FROM `Pagina`") or
+    die("Problemas en el select:" . mysqli_error($conexion));
+
+    ?>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">StyleShop</a>
+            <a class="navbar-brand" href="index.php">StyleShop</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home
+                        <a class="nav-link" href="index.php">Home
               <span class="sr-only">(current)</span>
             </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tienda.php">Products</a>
@@ -54,11 +62,15 @@
         <img class="img-fluid d-block mx-auto" src="http://placehold.it/200x200&text=Logo" alt="">
     </header>
 
-    <section class="py-5">
+    <?php
+        if ($reg = mysqli_fetch_array($registros)) {
+           // echo "Nombre: " . $reg['Descripcion'] . "<br>";
+        
+    echo '<section class="py-5">
         <div class="container">
             <h1>Mision</h1>
-            <p class="lead">Somos una empresa dedicada a ser de ti una persona de moda y estilo con las mejores prendas que vayan con tigo. Contribuyento con tu imagen y poniendo a tu disposicion productos de maxima calidad para cualquier moento del día en cualquier
-                etapa de tu vida.
+            <p class="lead">
+                '.$reg['Mision'].'
             </p>
 
         </div>
@@ -66,10 +78,11 @@
     <section class="py-5">
         <div class="container">
             <h1>Vision</h1>
-            <p class="lead">Ser la empresa reconocida como líder en moda a nivel mundial por parte de sus consumidores, empleados, clientes, proveedores y todos los grupos de interés relacionados con esta actividad.</p>
+            <p class="lead">'.$reg['Vision'].'</p>
         </div>
-    </section>
-
+    </section>';
+        }
+    ?>
 
     <footer class="py-5 bg-dark">
         <div class="container">
