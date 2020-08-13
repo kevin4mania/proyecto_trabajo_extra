@@ -1,3 +1,9 @@
+<?php
+if (isset($_REQUEST['pos']))
+  $inicio = $_REQUEST['pos'];
+else
+  $inicio = 0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,13 +92,14 @@
 
                 <div class="row">
                     <?php
-                    $registros = mysqli_query($conexion, "SELECT * FROM `Producto` JOIN `Fotos` ON Fotos.id_producto = Producto.id_producto WHERE Fotos.id_categoria = 2") or
+                    $registros = mysqli_query($conexion, "SELECT * FROM `Producto` JOIN `Fotos` ON Fotos.id_producto = Producto.id_producto WHERE Fotos.id_categoria = 2 LIMIT $inicio,12") or
                         die("Problemas en el select:" . mysqli_error($conexion));
                     ?>
                     <?php
+                    $impresos = 0;
                     while ($reg = mysqli_fetch_array($registros)) {
                         //echo "Nombre:" . $reg['Descripcion'] . "<br>";
-
+                        $impresos++;
                         echo '<div class="col-lg-3 col-md-6 mb-4">';
                         echo '<div class="card h-100">';
                         echo '<a href="#"><img class="card-img-top" src="' . $reg['fotos'] . '" alt="" style="width: 150px; margin-left: auto; margin-right: auto;"></a>';
@@ -112,7 +119,21 @@
                         echo '</div>';
                         echo '</div>';
                         echo '</div>';
-                    } ?>
+                    } 
+                    if ($inicio == 0)
+                        echo "Anteriores ";
+                      else {
+                        $anterior = $inicio - 12;
+                        echo "<a href=\"categoria2.php?pos=$anterior\">Anteriores </a>";
+                      }
+                      if ($impresos == 12) {
+                        $proximo = $inicio + 12;
+                        echo "<a href=\"categoria2.php?pos=$proximo\"> Siguientes</a>";
+                      } else
+                        echo "Siguientes";
+
+                        mysqli_close($conexion);
+                    ?>
 
                 </div>
                 <!-- /.row -->
