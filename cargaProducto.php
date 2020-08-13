@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Contacts </title>
+    <title>Cargar Producto </title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -49,22 +49,14 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home
+                        <a class="nav-link" href="admin.php">Inicio
                         <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-            <a class="nav-link" href="about.php">Quienes Somos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="tienda.php">Tienda</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="servicios.php">Servicios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contacts.php">Contáctanos</a>
-          </li>
+                        <a class="nav-link" href="index.php">Cerrar Session</a>
+                    </li>
+          
                 </ul>
             </div>
         </div>
