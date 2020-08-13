@@ -20,11 +20,44 @@
 
 <body>
     <?php
-    $conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or 
-        
+    $conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or
+        //$conexion = mysqli_connect("localhost", "root", "1234", "tiendaropa2022") or
         die("Problemas con la conexión");
-        ?>
+    ?>
 
+<<<<<<< HEAD
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.php">Quienes Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tienda.php">Tienda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.php">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.php">Contáctanos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+=======
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
@@ -60,6 +93,7 @@
   <div class="container">
 
     <div class="row">
+>>>>>>> 0676e86badaa5c1082c43467902aabb96f42c2ed
 
     <!-- Page Content -->
     <div class="container">
@@ -68,11 +102,11 @@
 
             <div class="col-lg-3">
 
-                <h1 class="my-4">Shop Name</h1>
+                <h1 class="my-4">Style Shop</h1>
                 <div class="list-group">
-                    <a href="tienda.php" class="list-group-item">Categoria 1</a>
-                    <a href="categoria2.php" class="list-group-item">Categoria 2</a>
-                    <a href="categoria3.php" class="list-group-item">Categoria 3</a>
+                    <a href="tienda.php" class="list-group-item">Caballeros</a>
+                    <a href="categoria2.php" class="list-group-item">Damas</a>
+                    <a href="categoria3.php" class="list-group-item">Infantil</a>
                 </div>
 
             </div>
@@ -108,30 +142,40 @@
                 </div>
 
                 <div class="row">
+
                     <?php
-        $registros = mysqli_query($conexion, "SELECT * FROM `Producto` WHERE `id_categoria`=1") or
-        die("Problemas en el select:" . mysqli_error($conexion));
-        ?>
-                    <?php 
-          while ($reg = mysqli_fetch_array($registros)) {
-            //echo "Nombre:" . $reg['Descripcion'] . "<br>";
-        
-          echo '<div class="col-lg-3 col-md-6 mb-4">';
-            echo '<div class="card h-100">';
-              echo '<a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>';
-              echo '<div class="card-body">';
-                echo '<h4 class="card-title">';
-                  echo '<a href="#">'.$reg['Nombre'].'</a>';
-                echo '</h4>';
-                echo '<h5>$'.$reg['Precio'].'</h5>';
-                echo '<p class="card-text">'.$reg['Descripcion'].'</p>';
-              echo '</div>';
-              echo '<div class="card-footer">';
-                echo '<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>';
-              echo '</div>';
-            echo '</div>';
-          echo '</div>';
-          }?>
+                    $registros = mysqli_query($conexion, "SELECT * FROM `Producto` JOIN `Fotos` ON Fotos.id_producto = Producto.id_producto WHERE Fotos.id_categoria = 1") or
+                        die("Problemas en el select:" . mysqli_error($conexion));
+                    ?>
+
+                    <?php
+
+                    //while ($reg = mysqli_fetch_array($registros)) {
+                    foreach ($registros as $reg) {
+                        echo '<form action="informacion.php" method="post">';
+                        //foreach ($fotos as $reg1) {
+                        // while ($reg1 = mysqli_fetch_array($fotos)) {
+                        //while ($reg1 = mysqli_fetch_array($fotos)) { 
+                        //echo "Nombre:" . $reg['Descripcion'] . "<br>";
+
+                        echo '<div class="col-lg-3 col-md-6 mb-4">';
+                        echo '<div class="card h-100">';
+                        echo '<a href="#"><img name="ima" class="card-img-top" src="' . $reg['fotos'] . '"  alt="" style="width: 150px; margin-left: auto; margin-right: auto;"></a>';
+                        echo '<div class="card-body">';
+                        echo '<h4 class="card-title">';
+                        echo '<a href="#">' . $reg['Nombre'] . '</a>';
+                        echo '</h4>';
+                        echo '<h5>$' . $reg['Precio'] . '</h5>';
+                        echo '<p class="card-text">' . $reg['Descripcion'] . '</p>';
+                        echo '<input type="submit" value="Ver Informacion">';
+                        echo '</div>';
+                        echo '<div class="card-footer">';
+                        echo '<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</form>';
+                    } ?>
 
                 </div>
                 <!-- /.row -->
