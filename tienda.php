@@ -21,6 +21,7 @@
 <body>
     <?php
     $conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or
+        //$conexion = mysqli_connect("localhost", "root", "kevinroot", "tiendaropa2022") or 
         //$conexion = mysqli_connect("localhost", "root", "1234", "tiendaropa2022") or
         die("Problemas con la conexión");
     ?>
@@ -28,30 +29,30 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">StyleShop</a>
+            <a class="navbar-brand" href="index.php">Start Bootstrap</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
+                    <li class="nav-item active">
                         <a class="nav-link" href="index.php">Home
                             <span class="sr-only">(current)</span>
                         </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.php">Quienes Somos</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="tienda.php">Tienda</a>
+                        <a class="nav-link" href="tienda.php">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="servicios.php">Servicios</a>
+                        <a class="nav-link" href="servicios.html">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacts.php">Contáctanos</a>
+                        <a class="nav-link" href="contacts.html">Contact</a>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -64,7 +65,7 @@
 
             <div class="col-lg-3">
 
-                <h1 class="my-4">Style Shop</h1>
+                <h1 class="my-4">Shop Name</h1>
                 <div class="list-group">
                     <a href="tienda.php" class="list-group-item">Caballeros</a>
                     <a href="categoria2.php" class="list-group-item">Damas</a>
@@ -104,32 +105,20 @@
                 </div>
 
                 <div class="row">
-
                     <?php
                     $registros = mysqli_query($conexion, "SELECT * FROM `Producto` JOIN `Fotos` ON Fotos.id_producto = Producto.id_producto WHERE Fotos.id_categoria = 1") or
                         die("Problemas en el select:" . mysqli_error($conexion));
                     ?>
-
                     <?php
-
-                    //while ($reg = mysqli_fetch_array($registros)) {
-                    foreach ($registros as $reg) {
-
-                        //foreach ($fotos as $reg1) {
-                        // while ($reg1 = mysqli_fetch_array($fotos)) {
-                        //while ($reg1 = mysqli_fetch_array($fotos)) { 
+                    while ($reg = mysqli_fetch_array($registros)) {
                         //echo "Nombre:" . $reg['Descripcion'] . "<br>";
-                    ?>
 
-
-
-                    <?php
                         echo '<div class="col-lg-3 col-md-6 mb-4">';
                         echo '<div class="card h-100">';
-                        echo '<a href="#"><img class="card-img-top" src="' . $reg['fotos'] . '"  alt="" style="width: 150px; margin-left: auto; margin-right: auto;"></a>';
+                        echo '<a href="#"><img class="card-img-top" src="' . $reg['fotos'] . '" alt="" style="width: 150px; margin-left: auto; margin-right: auto;"></a>';
                         echo '<div class="card-body">';
                         echo '<h4 class="card-title">';
-                        echo '<a href="#">' . $reg['Nombre'] . ' name="nombre"</a>';
+                        echo '<a href="#">' . $reg['Nombre'] . '</a>';
                         echo '</h4>';
                         echo '<h5>$' . $reg['Precio'] . '</h5>';
                         echo '<p class="card-text">' . $reg['Descripcion'] . '</p>';
@@ -143,7 +132,6 @@
                         echo '</div>';
                         echo '</div>';
                         echo '</div>';
-                        
                     } ?>
 
                 </div>
@@ -161,7 +149,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; StyleShop 2020</p>
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
         </div>
         <!-- /.container -->
     </footer>
