@@ -18,7 +18,7 @@
     
     die("Problemas con la conexión");
 
-    $registros = mysqli_query($conexion, "SELECT eslogan FROM `Pagina`") or
+    $registros = mysqli_query($conexion, "select * from Pagina") or
     die("Problemas en el select:" . mysqli_error($conexion));
 
     ?>
@@ -55,8 +55,20 @@
         </div>
     </nav>
     <!-- Header - set the background image for the header in the line below -->
-    <header class="py-5 bg-image-full" style="background-image: url('https://unsplash.it/1900/1080?image=1076');">
-        <img class="img-fluid d-block mx-auto" src="http://placehold.it/200x200&text=Logo" alt="">
+
+        <?php
+        
+        $template = '';
+        $slogan ='';
+        while ($reg = mysqli_fetch_array($registros)) {
+            $template .= '<header class="py-5 bg-image-full" style="background-image: url('.$reg['background'].');">';
+            $template .= '<img class="img-fluid d-block mx-auto" src="'.$reg['logo'].'" alt="" style="width: 300px; height:150px">';
+            $slogan = $reg['Eslogan'] ;
+        }
+        echo $template;
+
+        
+        ?>
     </header>
 
     <!-- Content section -->
@@ -66,16 +78,18 @@
             
             <h1>Slogan</h1>
             <?php
-            if ($reg = mysqli_fetch_array($registros)) {
-                echo '<p class="lead">'.$reg['eslogan'].'</p>';
-            }
+
+                        echo '<p class="lead">'.$slogan.'</p>';
+
+                    mysqli_close($conexion);
             ?>          
             </div>
     </section>
 
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+            <p class="m-0 text-center text-white">Copyright &copy; StyleShop 2020 <a class="nav-link" href="login.php">Admin</a></p>
+            
         </div>
         <!-- /.container -->
     </footer>
