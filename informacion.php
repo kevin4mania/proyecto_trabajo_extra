@@ -70,8 +70,10 @@
 
     <body>
         <?php
-        $dato = $_POST['ima'];
-        echo $dato;
+        if (isset($_POST['submit'])) {
+            $nombre = $_POST['dato'];
+            echo $nombre;
+        }
         ?>
     </body>
 
