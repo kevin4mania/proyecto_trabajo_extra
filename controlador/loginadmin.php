@@ -13,7 +13,7 @@ $conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022"
 
     while ($reg = mysqli_fetch_array($admin)) {
         if($reg['password'] == $password){
-            header("Location: ../dashboard.php");
+            header("Location: ../admin.php");
             mysqli_close($conexion);
             die();
         }    

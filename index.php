@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Full Width Pics - Start Bootstrap Template</title>
+    <title>Tienda StyleShop</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/full-width-pics.css" rel="stylesheet">
+    <link href="css/estilos2.css" rel="stylesheet">
 </head>
 
 <body>
@@ -60,16 +61,20 @@
         
         $template = '';
         $slogan ='';
+        $porque = '';
         while ($reg = mysqli_fetch_array($registros)) {
             $template .= '<header class="py-5 bg-image-full" style="background-image: url('.$reg['background'].');">';
             $template .= '<img class="img-fluid d-block mx-auto" src="'.$reg['logo'].'" alt="" style="width: 300px; height:150px">';
             $slogan = $reg['Eslogan'] ;
+            $porque = $reg['porque'];
         }
         echo $template;
 
         
         ?>
+        
     </header>
+
 
     <!-- Content section -->
 
@@ -79,10 +84,41 @@
             <h1>Slogan</h1>
             <?php
 
-                        echo '<p class="lead">'.$slogan.'</p>';
+                        echo '<p class="lead" style="text-align: justify;">'.$slogan.'</p>';
+            ?> 
+            
+            <h1>¿Porqué comprar en StyleShop?</h1>
+            <?php
+
+                        echo '<p class="lead" style="text-align: justify;" >'.$porque.'</p>';
 
                     mysqli_close($conexion);
-            ?>          
+            ?> 
+             <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card h-100">
+                    <img class="card-img-top" src="" alt="" style="width: 150px; margin-left: auto; margin-right: auto;" />
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="cargaProducto.php">Cliente Satisfecho</a>
+                        </h4>
+                        <p class="card-text">Califique nuestro servicio</p>
+                        <form action="clientesatisfecho.php" method="POST">
+                            <p class="clasificacion">
+                                <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                                --><label for="radio1">★</label><!--
+                                --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                                --><label for="radio2">★</label><!--
+                                --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                                --><label for="radio3">★</label><!--
+                                --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                                --><label for="radio4">★</label><!--
+                                --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                                --><label for="radio5">★</label>
+                            </p>
+                            </form>
+                    </div>
+                </div>
+            </div>     
             </div>
     </section>
 

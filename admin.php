@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Servicios</title>
+    <title>Inicio Administrador</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/heroic-features.css" rel="stylesheet">
+    <link href="css/estilos1.css" rel="stylesheet">
 </head>
 
 <body>
@@ -21,21 +22,8 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home
-                            <span class="sr-only">(current)</span>
+                        <a class="nav-link" href="index.php">Cerrar Session
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.php">Quienes Somos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="tienda.php">Tienda</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="servicios.php">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacts.php">Contáctanos</a>
                     </li>
                 </ul>
             </div>
@@ -43,7 +31,7 @@
     </nav>
 
     <div class="container">
-        <header class="jumbotron my-4">
+        <header class="jumbotron my-4" style="display:flex;">
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
                     <img class="card-img-top" src="" alt="" style="width: 150px; margin-left: auto; margin-right: auto;" />
