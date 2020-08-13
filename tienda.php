@@ -20,10 +20,10 @@
 
 <body>
     <?php
-   // $conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or 
-    $conexion = mysqli_connect("localhost", "root", "1234", "tiendaropa2022") or 
-    die("Problemas con la conexión");
-?>
+    $conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or
+        //$conexion = mysqli_connect("localhost", "root", "1234", "tiendaropa2022") or
+        die("Problemas con la conexión");
+    ?>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -104,37 +104,40 @@
                 </div>
 
                 <div class="row">
+
                     <?php
-        $registros = mysqli_query($conexion, "SELECT * FROM `Producto` WHERE `id_categoria`=1") or
-        die("Problemas en el select:" . mysqli_error($conexion));
-        ?>
+                    $registros = mysqli_query($conexion, "SELECT * FROM `Producto` JOIN `Fotos` ON Fotos.id_producto = Producto.id_producto WHERE Fotos.id_categoria = 1") or
+                        die("Problemas en el select:" . mysqli_error($conexion));
+                    ?>
+
                     <?php
-        // $fotos = mysqli_query($conexion, "SELECT * FROM `Fotos` WHERE `id_categoria`=1") or
-         //die("Problemas en el select:" . mysqli_error($conexion));
-        ?>
-                    <?php 
-                   $producto='';
-          while ($reg = mysqli_fetch_array($registros)) {
-            //while ($reg1 = mysqli_fetch_array($fotos)) { 
-            //echo "Nombre:" . $reg['Descripcion'] . "<br>";
-        
-    echo '<div class="col-lg-3 col-md-6 mb-4">';
-            echo '<div class="card h-100">';
-              echo '<a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>';
-              echo '<div class="card-body">';
-                echo '<h4 class="card-title">';
-                  echo '<a href="#">'.$reg['Nombre'].'</a>';
-                echo '</h4>';
-                echo '<h5>$'.$reg['Precio'].'</h5>';
-                echo '<p class="card-text">'.$reg['Descripcion'].'</p>';
-                echo '<input type="button" value="Añadir al carrito">';
-              echo '</div>';
-              echo '<div class="card-footer">';
-                echo '<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>';
-              echo '</div>';
-            echo '</div>';
-          echo '</div>';
-          }?>
+
+                    //while ($reg = mysqli_fetch_array($registros)) {
+                    foreach ($registros as $reg) {
+                        echo '<form action="informacion.php" method="post">';
+                        //foreach ($fotos as $reg1) {
+                        // while ($reg1 = mysqli_fetch_array($fotos)) {
+                        //while ($reg1 = mysqli_fetch_array($fotos)) { 
+                        //echo "Nombre:" . $reg['Descripcion'] . "<br>";
+
+                        echo '<div class="col-lg-3 col-md-6 mb-4">';
+                        echo '<div class="card h-100">';
+                        echo '<a href="#"><img name="ima" class="card-img-top" src="' . $reg['fotos'] . '"  alt="" style="width: 150px; margin-left: auto; margin-right: auto;"></a>';
+                        echo '<div class="card-body">';
+                        echo '<h4 class="card-title">';
+                        echo '<a href="#">' . $reg['Nombre'] . '</a>';
+                        echo '</h4>';
+                        echo '<h5>$' . $reg['Precio'] . '</h5>';
+                        echo '<p class="card-text">' . $reg['Descripcion'] . '</p>';
+                        echo '<input type="submit" value="Ver Informacion">';
+                        echo '</div>';
+                        echo '<div class="card-footer">';
+                        echo '<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</form>';
+                    } ?>
 
                 </div>
                 <!-- /.row -->
