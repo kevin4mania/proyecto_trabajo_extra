@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
 <?php
 if(isset( $_POST['name']))
 $name = $_POST['name'];
@@ -34,7 +26,7 @@ mysqli_query($conexion, "insert into Producto(id_categoria,Nombre,Descripcion,Pr
 
 $registros = mysqli_query($conexion, "SELECT MAX(id_producto) as id FROM Producto") or
 die("Problemas en el select:" . mysqli_error($conexion));
-echo $datosFOTO;
+//echo $datosFOTO;
 
 if ($reg = mysqli_fetch_array($registros)) {
     $id=$reg['id'];
@@ -49,8 +41,10 @@ if ($reg = mysqli_fetch_array($registros)) {
 
 mysqli_close($conexion);
 
-echo 'insertado'
+echo 'insertado';
+
+header("Location: ../index.php");
+mysqli_close($conexion);
+            die();
 
 ?>
-</body>
-</html>
