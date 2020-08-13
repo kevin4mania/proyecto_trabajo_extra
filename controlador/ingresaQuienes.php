@@ -15,7 +15,7 @@ mysqli_query($conexion, "UPDATE `Pagina` SET `Vision`='".$vision."',`Mision`='".
 
     echo 'insertado';
     
-    header("Location: ../index.php");
+    header("Location: ../cargaQuienes.php");
     mysqli_close($conexion);
                 die();
     

@@ -39,11 +39,8 @@ if ($reg = mysqli_fetch_array($registros)) {
 
 }
 
-mysqli_close($conexion);
 
-echo 'insertado';
-
-header("Location: ../index.php");
+header("Location: ../cargaProducto.php");
 mysqli_close($conexion);
             die();
 
