@@ -138,7 +138,7 @@
         $estrellas = 0;
         if (isset($_POST['estrellas']))
             $estrellas = $_POST['estrellas'];
-        $conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or
+            $conexion = mysqli_connect("localhost", "root", "", "tiendaropa2022") or
             die("Problemas con la conexión");
         $registros = mysqli_query($conexion, "SELECT * FROM `Pagina`") or
             die("Problemas en el select:" . mysqli_error($conexion));
