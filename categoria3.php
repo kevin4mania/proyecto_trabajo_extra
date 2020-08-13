@@ -122,7 +122,10 @@
                         echo '</h4>';
                         echo '<h5>$' . $reg['Precio'] . '</h5>';
                         echo '<p class="card-text">' . $reg['Descripcion'] . '</p>';
-                        echo '<input type="button" value="Ver Informacion">';
+                        echo '<form action="informacion.php" method="POST">';
+                        echo '<input type = "text" name="codigo" id="codigo" value="' . $reg['id_producto'] . '" style="display: none;"/>';
+                        echo '<input type="submit" value="Ver Informacion">';
+                        echo '</form>';
                         echo '</div>';
                         echo '<div class="card-footer">';
                         echo '<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>';
