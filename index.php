@@ -115,6 +115,7 @@
                                 --><input id="radio5" type="radio" name="estrellas" value="1"><!--
                                 --><label for="radio5">★</label>
                             </p>
+                            <input type="submit" value="Enviar Calificacion" >
                             </form>
                     </div>
                 </div>
