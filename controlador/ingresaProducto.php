@@ -34,7 +34,7 @@ echo 'ENCODE:';
 echo base64_encode($data);
 
 //$img_file = 'raju.jpg';
-$imgData = base64_encode(file_get_contents($foto));
+$imgData = base64_encode(file_get_contents($_FILES['foto']['tmp_name']));
 $src = 'data: '.mime_content_type($foto).';base64,'.$imgData;
 //-------------------
 
