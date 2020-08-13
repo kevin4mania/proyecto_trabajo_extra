@@ -135,6 +135,7 @@
     <footer class="py-5 bg-dark">
         <?php
         //SELECT COUNT(id_producto)as conteo FROM `Producto`
+        $estrellas = 0;
         if (isset($_POST['estrellas']))
             $estrellas = $_POST['estrellas'];
         $conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or
@@ -144,7 +145,7 @@
 
         if ($reg = mysqli_fetch_array($registros)) {
             $valor=$reg['Quienes'];
-            if (intval($estrellas)  >= 3) {
+            if ($estrellas  >= 3) {
                 //echo 'decntro';
                 $valor += 1;
             }            
