@@ -16,7 +16,7 @@ $datosFOTO = 'data:image/jpeg;base64,'.base64_encode(file_get_contents($_FILES['
 
 
 
-$conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or 
+$conexion = mysqli_connect("localhost", "root", "", "tiendaropa2022") or
 die("Problemas con la conexión");
 
 mysqli_query($conexion, "insert into Producto(id_categoria,Nombre,Descripcion,Precio,Cantidad) values 

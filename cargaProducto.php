@@ -32,8 +32,8 @@
 </head>
 <body>
 <?php
-    $conexion = mysqli_connect("www.db4free.net", "tiendaropa2022", "tiendaropa2022", "tiendaropa2022") or 
-    //$conexion = mysqli_connect("localhost", "root", "1234", "tiendaropa2022") or 
+
+    $conexion = mysqli_connect("localhost", "root", "", "tiendaropa2022") or 
     die("Problemas con la conexión");
     $registros = mysqli_query($conexion, "SELECT * FROM `Categoria` ") or
     die("Problemas en el select:" . mysqli_error($conexion));
