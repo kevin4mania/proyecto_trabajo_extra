@@ -106,7 +106,7 @@
 
                 <div class="row">
                     <?php
-                    $registros = mysqli_query($conexion, "SELECT * FROM `Producto` JOIN `Fotos` ON Fotos.id_producto = Producto.id_producto WHERE Fotos.id_categoria = 1") or
+                    $registros = mysqli_query($conexion, "SELECT * FROM `Producto` JOIN `Fotos` ON Fotos.id_producto = Producto.id_producto WHERE Fotos.id_categoria = 1 LIMIT 2") or
                         die("Problemas en el select:" . mysqli_error($conexion));
                     ?>
                     <?php
