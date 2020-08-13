@@ -37,12 +37,12 @@
       </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item ">
                         <a class="nav-link" href="index.php">Home
               <span class="sr-only">(current)</span>
             </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
             <a class="nav-link" href="about.php">Quienes Somos</a>
           </li>
           <li class="nav-item">
@@ -59,11 +59,24 @@
         </div>
     </nav>
 
-    <header class="py-5 bg-image-full" style="background-image: url('https://unsplash.it/1900/1080?image=1076');">
-        <img class="img-fluid d-block mx-auto" src="http://placehold.it/200x200&text=Logo" alt="">
+    <?php
+        
+        $template = '';
+        
+        if ($reg = mysqli_fetch_array($registros)) {
+            $template .= '<header class="py-5 bg-image-full" style="background-image: url('.$reg['background'].');">';
+            $template .= '<img class="img-fluid d-block mx-auto" src="'.$reg['logo'].'" alt="" style="width: 300px; height:150px">';
+
+        }
+        echo $template;
+
+        
+        ?>
     </header>
 
     <?php
+        $registros = mysqli_query($conexion, "SELECT * FROM `Pagina`") or
+        die("Problemas en el select:" . mysqli_error($conexion));
         if ($reg = mysqli_fetch_array($registros)) {
            // echo "Nombre: " . $reg['Descripcion'] . "<br>";
         
@@ -87,7 +100,7 @@
 
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+            <p class="m-0 text-center text-white">Copyright &copy; StyleShop 2020</p>
         </div>
         <!-- /.container -->
     </footer>
