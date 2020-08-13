@@ -29,30 +29,30 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.php">Start Bootstrap</a>
+            <a class="navbar-brand" href="index.php">StyleShop</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="index.php">Home
                             <span class="sr-only">(current)</span>
                         </a>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tienda.php">Products</a>
+                        <a class="nav-link" href="about.php">Quienes Somos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="servicios.html">Services</a>
+                        <a class="nav-link" href="tienda.php">Tienda</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="servicios.php">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacts.html">Contact</a>
+                        <a class="nav-link" href="contacts.php">Contáctanos</a>
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -65,7 +65,7 @@
 
             <div class="col-lg-3">
 
-                <h1 class="my-4">Shop Name</h1>
+                <h1 class="my-4">Style Shop</h1>
                 <div class="list-group">
                     <a href="tienda.php" class="list-group-item">Caballeros</a>
                     <a href="categoria2.php" class="list-group-item">Damas</a>
@@ -77,36 +77,14 @@
 
             <div class="col-lg-9">
 
-                <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-
+                <br>
+                <center>
+                    <h2>Caballeros</h2>
+                </center>
+                <br>
                 <div class="row">
                     <?php
-                    $registros = mysqli_query($conexion, "SELECT * FROM `Producto` JOIN `Fotos` ON Fotos.id_producto = Producto.id_producto WHERE Fotos.id_categoria = 1 LIMIT 2") or
+                    $registros = mysqli_query($conexion, "SELECT * FROM `Producto` JOIN `Fotos` ON Fotos.id_producto = Producto.id_producto WHERE Fotos.id_categoria = 1 LIMIT 12") or
                         die("Problemas en el select:" . mysqli_error($conexion));
                     ?>
                     <?php
