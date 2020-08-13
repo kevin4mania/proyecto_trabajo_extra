@@ -28,14 +28,14 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <a class="navbar-brand" href="#">StyleShop</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item ">
                         <a class="nav-link" href="index.php">Home
                             <span class="sr-only">(current)</span>
                         </a>
@@ -43,7 +43,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about.php">Quienes Somos</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="tienda.php">Tienda</a>
                     </li>
                     <li class="nav-item">
@@ -114,7 +114,7 @@
 
                     //while ($reg = mysqli_fetch_array($registros)) {
                     foreach ($registros as $reg) {
-                        echo '<form action="informacion.php" method="post">';
+
                         //foreach ($fotos as $reg1) {
                         // while ($reg1 = mysqli_fetch_array($fotos)) {
                         //while ($reg1 = mysqli_fetch_array($fotos)) { 
@@ -126,21 +126,24 @@
                     <?php
                         echo '<div class="col-lg-3 col-md-6 mb-4">';
                         echo '<div class="card h-100">';
-                        echo '<a href="#"><img name="ima" class="card-img-top" src="' . $reg['fotos'] . '"  alt="" style="width: 150px; margin-left: auto; margin-right: auto;"></a>';
+                        echo '<a href="#"><img class="card-img-top" src="' . $reg['fotos'] . '"  alt="" style="width: 150px; margin-left: auto; margin-right: auto;"></a>';
                         echo '<div class="card-body">';
                         echo '<h4 class="card-title">';
                         echo '<a href="#">' . $reg['Nombre'] . ' name="nombre"</a>';
                         echo '</h4>';
                         echo '<h5>$' . $reg['Precio'] . '</h5>';
                         echo '<p class="card-text">' . $reg['Descripcion'] . '</p>';
+                        echo '<form action="informacion.php" method="POST">';
+                        echo '<input type = "text" name="codigo" id="codigo" value="' . $reg['id_producto'] . '" style="display: none;"/>';
                         echo '<input type="submit" value="Ver Informacion">';
+                        echo '</form>';
                         echo '</div>';
                         echo '<div class="card-footer">';
                         echo '<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>';
                         echo '</div>';
                         echo '</div>';
                         echo '</div>';
-                        echo '</form>';
+                        
                     } ?>
 
                 </div>
